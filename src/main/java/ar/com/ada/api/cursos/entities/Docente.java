@@ -19,7 +19,7 @@ public class Docente extends Persona {
     private List<Curso> cursosQueDicta = new ArrayList<>();
     @OneToOne(mappedBy = "docente", cascade = CascadeType.ALL)
     @JsonIgnore
-    private Usuario usuario;
+    private Usuario usuario;//se agrego relacion bidireccional entre Docente->Usuario + el cascade type ALL.
 
     public Integer getDocenteId() {
         return docenteId;

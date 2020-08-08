@@ -2,6 +2,7 @@ package ar.com.ada.api.cursos.entities;
 
 public class Pais {
     public enum PaisEnum {
+        //Se encontro que los enumerados no se deserializan correctamente cuando son customizados y hay que usar el nombre completo.
         ARGENTINA(32), ESTADOS_UNIDOS(840), VENEZUELA(862);
 
         private final Integer value;

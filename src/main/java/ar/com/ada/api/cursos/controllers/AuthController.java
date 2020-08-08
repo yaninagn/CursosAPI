@@ -24,7 +24,7 @@ import ar.com.ada.api.cursos.services.UsuarioService;;
  */
 @RestController
 public class AuthController {
-
+//- AuthController: es la que maneja los metodos de Registracion y Login
     @Autowired
     UsuarioService usuarioService;
 

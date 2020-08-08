@@ -20,11 +20,13 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
-
+//WebSecurityConfig: permite administrar el tipo de seguridad que tendra nuestra aplicacion, 
+//en este caso protejeremos todos los recursos que no esten dentro de /api/auth/*
     @Autowired
     private JWTAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-    @Autowired
+    @Autowired 
+    //- JWTUserdetailService: nos permite manejar internamente dentro del Pipeline de Springboot al token y al usuario. Esta clase tranquilamente podria haber estado fusionada con Usuario Service pero solo se dejo aparte para mostrar la modularizacion.
     private UserDetailsService jwtUserDetailsService;
 
     @Autowired

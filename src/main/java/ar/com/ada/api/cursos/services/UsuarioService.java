@@ -20,7 +20,7 @@ import ar.com.ada.api.cursos.security.Crypto;
 
 @Service
 public class UsuarioService {
-
+//- UsuarioService: tendra toda la logica de negocio de creacion de usuarios(ej que cuando se cree un usuario de tipo Estudiante se cree tambien un Estudiante)
   @Autowired
   DocenteService docenteService;
   @Autowired
@@ -35,14 +35,14 @@ public class UsuarioService {
   public Usuario login(String username, String password) {
 
     /**
-     * Metodo IniciarSesion recibe usuario y contraseña validar usuario y contraseña
+     * Metodo IniciarSesion recibe usuario y contraseï¿½a validar usuario y contraseï¿½a
      */
 
     Usuario u = buscarPorUsername(username);
 
     if (u == null || !u.getPassword().equals(Crypto.encrypt(password, u.getUsername()))) {
 
-      throw new BadCredentialsException("Usuario o contraseña invalida");
+      throw new BadCredentialsException("Usuario o contraseï¿½a invalida");
     }
 
     return u;

@@ -20,7 +20,7 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>org.jboss.logging</groupId>
+			<groupId>org.jboss.logging</groupId> <!--Este log debe estar OFF o seteado correctamente en produccion ya que no debe loguear informacion sensible. -->
 			<artifactId>jboss-logging</artifactId>
 			<version>3.2.0.Final</version>
 		</dependency>

@@ -23,7 +23,8 @@ import io.jsonwebtoken.ExpiredJwtException;
  */
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
-
+//JWTRequestFilter: nos permite interceptar que desde Front nos envien un JWT Token 
+//valido, si no es valido que de 401 antes de ejecutar el request del controller.
     @Autowired
     private JWTUserDetailsService jwtUserDetailsService;
 

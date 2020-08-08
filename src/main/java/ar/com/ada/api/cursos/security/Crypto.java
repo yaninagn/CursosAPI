@@ -16,15 +16,14 @@ import javax.crypto.spec.SecretKeySpec;
 
 /**
  * Crypto
- * 
- * Esta clase es solo a nivel educativo inicial. Cualquier problema de diseño o
+ * es una clase que nos permite encriptar, desencriptar y/o hashear texto.
+ * Esta clase es solo a nivel educativo inicial. Cualquier problema de diseï¿½o o
  * seguridad estara fuera del alcance del proyecto. Debe usarse bajo su
  * responsabilidad. Basado en Source:
  * //https://howtodoinjava.com/security/aes-256-encryption-decryption/ Con
  * algunos cambios
  */
 public class Crypto {
-
     // En la vida real, la secretKey estara guardada en algun lado en forma segura y
     // No sera
     // estatica

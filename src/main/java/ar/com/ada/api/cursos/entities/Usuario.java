@@ -18,7 +18,7 @@ public class Usuario {
     private String password;
     private String email;
     @Column(name = "fecha_login")
-    private Date fechaLogin;
+    private Date fechaLogin;// se tuvo que poner fecha login como NULO en la tabla USUARIO
     @Column(name = "tipo_usuario_id")
     private int tipoUsuarioId;
     @OneToOne

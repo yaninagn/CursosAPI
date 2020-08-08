@@ -18,6 +18,7 @@ public class Estudiante extends Persona {
     private List<Curso> cursosQueAsiste = new ArrayList<>();
     @JsonIgnore
     @OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL) // nombre del atributo en el obj usuario
+    //se agrego relacion bidireccional entre Estudiante->Usuario + el cascade type ALL.
     private Usuario usuario;
 
     public Integer getEstudianteId() {
