@@ -96,7 +96,7 @@ public class EstudianteService {
         curso.agregarInscripcion(inscripcion);
         curso.asignarEstudiante(estudiante);
 
-        estudianteRepo.save(estudiante);
+        estudianteRepo.save(estudiante);//lo guardo en el estudiante por el cascade
         return inscripcion;
     }
 

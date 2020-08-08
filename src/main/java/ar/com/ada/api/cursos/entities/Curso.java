@@ -20,17 +20,19 @@ public class Curso {
     private String descripcion;
     // cursosQueDicta para diferenciar los cursos de docente de los de estudiante
     @ManyToMany(mappedBy = "cursosQueDicta")
-    private List<Docente> docentes = new ArrayList<>();;
+    private List<Docente> docentes = new ArrayList<>();
     @ManyToMany(mappedBy = "cursosQueAsiste")
-    private List<Estudiante> estudiantes = new ArrayList<>();;
+    private List<Estudiante> estudiantes = new ArrayList<>();
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Clase> clases;
     // @JsonIgnore
     @ManyToMany(mappedBy = "cursos")
     private List<Categoria> categorias = new ArrayList<>();
+   
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JsonIgnore//agrego este jsonIgnore para que no me haga bucle cuando quiero ver los cursos en los que me inscribir como estudiante
     private List<Inscripcion> inscripciones = new ArrayList<>();;
     @Column(name = "duracion_horas")
     private Integer duracionHoras;
