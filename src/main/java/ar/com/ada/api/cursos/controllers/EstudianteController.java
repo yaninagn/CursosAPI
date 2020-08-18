@@ -86,21 +86,21 @@ public class EstudianteController {
      * /api/estudiantes/{id}/cursos - /api/estudiantes/{id}/cursos/disponibles -> en
      * este caso es un metodo separado
      */
-    @GetMapping("/api/estudiantes/{id}/cursos")
-    public ResponseEntity<List<Curso>> listaCursos(@PathVariable Integer id,
-            @RequestParam(value = "disponibles", required = false) boolean disponibles) {
-        List<Curso> listaCursos = new ArrayList<>();
-        Estudiante estudiante = estudianteService.buscarPorId(id);
-        if (disponibles) {
-            // listaCursos = algo que nos devuelva la llista de cursos disponibles.
-            listaCursos = cursoService.listaCursosDisponibles(estudiante);
-        } else {
-            listaCursos = estudiante.getCursosQueAsiste();
-        }
+    // @GetMapping("/api/estudiantes/{id}/cursos")
+    // public ResponseEntity<List<Curso>> listaCursos(@PathVariable Integer id,
+    //         @RequestParam(value = "disponibles", required = false) boolean disponibles) {
+    //     List<Curso> listaCursos = new ArrayList<>();
+    //     Estudiante estudiante = estudianteService.buscarPorId(id);
+    //     if (disponibles) {
+    //         // listaCursos = algo que nos devuelva la llista de cursos disponibles.
+    //         listaCursos = cursoService.listaCursosDisponibles(estudiante);
+    //     } else {
+    //         listaCursos = estudiante.getCursosQueAsiste();
+    //     }
 
-        return ResponseEntity.ok(listaCursos);
+    //     return ResponseEntity.ok(listaCursos);
 
-    }
+    // }
 	
 	//Otra forma de hacer el metodo pero mostrando solo que queremos qeu el estudiante vea de los datos del curso al cual inscribirse
 	 @GetMapping("/api/estudiantes/{id}/cursos")
@@ -137,7 +137,8 @@ public class EstudianteController {
         }
 
         return ResponseEntity.ok(listaSimplificada);
-	
+
+    }
 
     // - Estudiante -> Inscribirse a un curso(por defecto haremos que la inscripcion
     // se apruebe de una)!
