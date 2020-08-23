@@ -17,16 +17,22 @@ import ar.com.ada.api.cursos.entities.Pais.TipoDocuEnum;
 import ar.com.ada.api.cursos.entities.Usuario.TipoUsuarioEnum;
 import ar.com.ada.api.cursos.repos.UsuarioRepository;
 import ar.com.ada.api.cursos.security.Crypto;
+import ar.com.ada.api.cursos.sistema.comm.EmailService;
 
 @Service
 public class UsuarioService {
-//- UsuarioService: tendra toda la logica de negocio de creacion de usuarios(ej que cuando se cree un usuario de tipo Estudiante se cree tambien un Estudiante)
+  // - UsuarioService: tendra toda la logica de negocio de creacion de usuarios(ej
+  // que cuando se cree un usuario de tipo Estudiante se cree tambien un
+  // Estudiante)
   @Autowired
   DocenteService docenteService;
   @Autowired
   EstudianteService estudianteService;
   @Autowired
   UsuarioRepository usuarioRepository;
+
+  @Autowired
+  EmailService emailService;
 
   public Usuario buscarPorUsername(String username) {
     return usuarioRepository.findByUsername(username);
@@ -35,20 +41,20 @@ public class UsuarioService {
   public Usuario login(String username, String password) {
 
     /**
-     * Metodo IniciarSesion recibe usuario y contrase�a validar usuario y contrase�a
+     * Metodo IniciarSesion recibe usuario y contraseña validar usuario y contraseña
      */
 
-    Usuario u = buscarPorUsername(username);
+    Usuario u = buscarPorUsername(username);// busca el usuario en la base de datos por username porque no se repite
 
     if (u == null || !u.getPassword().equals(Crypto.encrypt(password, u.getUsername()))) {
-
-      throw new BadCredentialsException("Usuario o contrase�a invalida");
+      // si está en null es porque no hay nadie con ese username
+      throw new BadCredentialsException("Usuario o contraseña invalida");// me tira un 401
     }
 
     return u;
   }
 
-  public Usuario crearUsuario(TipoUsuarioEnum tipoUsuario, String nombre, int pais, TipoDocuEnum tipoDocumento,
+  public Usuario crearUsuario(TipoUsuarioEnum tipoUsuario, String nombre, Integer pais, TipoDocuEnum tipoDocumento,
       String documento, Date fechaNacimiento, String email, String password) {
 
     // Crear usuario: REGISTRA Un nuevo usuario
@@ -86,6 +92,11 @@ public class UsuarioService {
       default:
         break;
     }
+
+    // Aca enviamos email
+    emailService.SendEmail(usuario.getEmail(), "Curso Pinturillo: Registracion exitossa!!!",
+        "Hola " + usuario.getUsername() + ", bienvenida al sistema de cursos");
+
     return usuario;
 
   }

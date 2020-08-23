@@ -107,6 +107,10 @@ public class EstudianteController {
     public ResponseEntity<List<CursoEstudianteResponse>> listaCursos(@PathVariable Integer id,
             @RequestParam(value = "disponibles", required = false) boolean disponibles) {
         List<Curso> listaCursos = new ArrayList<>();
+
+        //en path: ?disponibles=true
+
+        
         Estudiante estudiante = estudianteService.buscarPorId(id);
         if (disponibles) {
             // listaCursos = algo que nos devuelva la llista de cursos disponibles.
