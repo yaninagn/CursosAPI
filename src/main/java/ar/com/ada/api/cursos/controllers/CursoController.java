@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ar.com.ada.api.cursos.models.request.CursoAsigDocRequest;
 import ar.com.ada.api.cursos.models.request.CursoRequest;
-import ar.com.ada.api.cursos.models.response.CursoResponse;
 import ar.com.ada.api.cursos.models.response.GenericResponse;
 import ar.com.ada.api.cursos.services.CursoService;
 

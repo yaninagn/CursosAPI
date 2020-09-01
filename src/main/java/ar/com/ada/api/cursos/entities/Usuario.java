@@ -130,7 +130,7 @@ public class Usuario {
     }
 
     public Integer obtenerEntityId() {
-        // TODO, segun el tipo de usuario, devolver el docenteId o estudianteId o nada!
+        //TODO, segun el tipo de usuario, devolver el docenteId o estudianteId o nada!
 
         switch (this.getTipoUsuarioId()) {
             case ESTUDIANTE:

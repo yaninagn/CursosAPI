@@ -1,6 +1,5 @@
 package ar.com.ada.api.cursos.services;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.cursos.entities.*;
-import ar.com.ada.api.cursos.entities.Pais.PaisEnum;
 import ar.com.ada.api.cursos.entities.Pais.TipoDocuEnum;
 import ar.com.ada.api.cursos.entities.Usuario.TipoUsuarioEnum;
 import ar.com.ada.api.cursos.repos.UsuarioRepository;
@@ -89,7 +87,8 @@ public class UsuarioService {
         docenteService.crearDocente(docente);
         break;
 
-      default:
+      case STAFF :
+        usuarioRepository.save(usuario);
         break;
     }
 

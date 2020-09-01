@@ -1,13 +1,11 @@
 package ar.com.ada.api.cursos.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +14,6 @@ import ar.com.ada.api.cursos.entities.Usuario;
 import ar.com.ada.api.cursos.models.request.*;
 import ar.com.ada.api.cursos.models.response.*;
 import ar.com.ada.api.cursos.security.jwt.JWTTokenUtil;
-import ar.com.ada.api.cursos.services.JWTUserDetailsService;
 import ar.com.ada.api.cursos.services.UsuarioService;;
 
 /**
@@ -34,8 +31,6 @@ public class AuthController {
     @Autowired
     private JWTTokenUtil jwtTokenUtil;
 
-    @Autowired
-    private JWTUserDetailsService userDetailsService;
 
     // Auth : authentication ->
     @PostMapping("/api/auth/register")
